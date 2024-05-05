@@ -1,10 +1,11 @@
 import express from 'express';
+import path from 'path';
 const host = '0.0.0.0';
 const porta = 3000;
 const app = express();
 var lista = [];
 
-app.use(express.static('./publico'));
+app.use(express.static(path.join(process.cwd(),'publico')));
 app.use('/cadastrar',(requisicao,resp)=>{
     const nome = requisicao.query.nome;
     const cnpj = requisicao.query.cnpj;
